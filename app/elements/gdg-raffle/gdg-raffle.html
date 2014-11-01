@@ -1,0 +1,65 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/sortable-table/sortable-table.html">
+
+<polymer-element name="gdg-raffle" attributes="">
+	<template>
+		<link rel="stylesheet" href="../../bower_components/sortable-table/css/bootstrap.css" shim-shadowdom>
+		<style>
+			.pad-top {
+				padding-top: 10px;
+			}
+			.pad-bottom {
+				padding-bottom: 10px;
+			}
+		</style>
+		<div class="pad-bottom">
+			<input id="memberInput" type="text">
+			<button on-click="{{buttonClick}}">Add Member</button>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading"><b>It's GDG Raffle Time!</b></div>
+			<sortable-table id="raffletable" class="bootstrap" footerTemplate="indexedPager"
+							pageSize="3">
+			</sortable-table>
+		</div>
+		<div layout horizontal center-justified>
+			<button on-click="{{pickWinner}}">Pick Winner!</button>
+		</div>
+		<div layout horizontal center-justified class="pad-top">
+			<span>The lucky winner is:</span>
+		</div>
+		<div layout horizontal center-justified class="pad-top">
+			<span>{{winner}}</span>
+		</div>
+	</template>
+	<script>
+		(function () {
+			'use strict';
+
+			Polymer({
+				ready: function() {
+					this.winner = "";
+				},
+				buttonClick: function(event, detail, sender) {
+					var data = this.$.raffletable.data;
+					if(data){
+						this.$.raffletable.data.push({"Members": this.$.memberInput.value});
+					}
+					else {
+						this.$.raffletable.data = [{"Members": this.$.memberInput.value}];
+					}
+				},
+				pickWinner: function(event, detail, sender) {
+					if(this.$.raffletable.data.length == 0){
+						this.winner = "You must input members!";
+					}
+					else {
+						var random = Math.floor(Math.random() * this.$.raffletable.data.length);
+						this.winner = this.$.raffletable.data[random].Members;
+					}
+				}
+			});
+
+		})();
+	</script>
+</polymer-element>

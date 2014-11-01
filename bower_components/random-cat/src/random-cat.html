@@ -1,0 +1,23 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="random-cat">
+	<template>
+		<core-ajax auto
+			url="https://api.imgur.com/3/gallery/r/CatGifs/top/month"
+			headers='{"Authorization": "Client-ID aaa89e0cbd721a6"}'
+			handleAs="json"
+			on-core-response="{{handleResponse}}"></core-ajax>
+		<template bind="{{image}}">
+			<img src="{{link}}" alt="{{title}}" height="{{height}}" width="{{width}}">
+		</template>
+	</template>
+	<script>
+		Polymer('random-cat', {
+			handleResponse: function(event, response) {
+				var images = response.response.data;
+				this.image = images[Math.floor(Math.random() * images.length)];
+			}
+		});
+	</script>
+</polymer-element>
