@@ -8,7 +8,7 @@ gdg-raffle
 
 [logo]
 
-[logo]: https://github.com/priley86/gdg-raffle/logo/gdg-raffle-logo.png "gdg-raffle-demo"
+[logo]: https://raw.githubusercontent.com/priley86/gdg-raffle/master/logo/gdg-raffle-logo.png "gdg-raffle-demo"
 
 Setup
 --------------
