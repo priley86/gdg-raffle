@@ -6,7 +6,7 @@ gdg-raffle
 [Polytechnic]: http://www.itshackademic.com/
 [generator-poylmer]: https://github.com/yeoman/generator-polymer
 
-[logo]
+![alt text][logo]
 
 [logo]: https://raw.githubusercontent.com/priley86/gdg-raffle/master/logo/gdg-raffle-logo.png "gdg-raffle-demo"
 
