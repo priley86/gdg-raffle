@@ -1,0 +1,17 @@
+{
+  "name": "gdg-raffle",
+  "version": "0.0.0",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components"
+  ],
+  "main": "gdg-raffle.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.4.0",
+    "sortable-table": "~0.10.0"
+  },
+  "devDependencies": {
+    "polymer-test-tools": "Polymer/polymer-test-tools#^0.4.0"
+  }
+}
